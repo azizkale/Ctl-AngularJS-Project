@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <script src="js/AngularJS v1.7.9.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular-cookies.js" integrity="sha256-Wre6oTmOjQqjoFHH+ns2kIaDB7SgJa3W8BHb6ZZoxYQ=" crossorigin="anonymous"></script>
+    <link href="css/cssCtl.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+</head>
+<body id="bodyCtlGrisSayfasi">
+   
+    
+    <form id="form1" runat="server">
+        <div id="modalGirisSayfasi" ng-app="angYeniKullaniciForm" ng-controller="myCtrlYeniKullaniciForm">
+            <div class="modal-content">
+                <div class="modal-header justify-content-center">
+                    <h3 class="modal-title text-center" id="modalGirisBaslik">CTL Hesap Oluştur</h3>
+                </div>
+                <div class="modal-body justify-content-center">
+                    <div class="container col">
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="txtKullaniciAdi">Kullanıcı Adı</label>
+                                <input type="text" class="form-control" ng-required="true" ng-model="txtKullaniciAdi" placeholder="Kullanıcı Adı" />
+                                <label for="txtSifre">Şifre</label>
+                                <input type="password" class="form-control" ng-required="true" ng-model="txtSifre" placeholder="Şifre" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <input type="button" value="İleri" class="btn btn-primary btn-block" id="btnGiris" ng-click="btnYeniKullaniciGiris_Click()" />
+                    {{deg}}
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col">
+                            <label for="txtSifre"></label>
+                            <a href="GroupGirisSayfasi.aspx" id="btnGrupGirisSayfasi" runat="server">Grup Girişi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+            
+            //form işlemleri modulu
+            var angYeniKullaniciForm = angular.module("angYeniKullaniciForm", ['ngCookies']);
+
+            angYeniKullaniciForm.controller("myCtrlYeniKullaniciForm", function ($scope, $http, $window, $cookies) {
+        $scope.btnYeniKullaniciGiris_Click = function () {
+            //cookies
+            $scope.kullaniciAdiCookie = $cookies.put("kullaniciAdiC", $scope.txtKullaniciAdi);
+
+
+            //yeni kullanıcı oluşşturma post u
+            var post = {
+                method: "POST",
+                url: "CTL_CRUDOperations.asmx/YeniKullaniciOlustur",
+                data: { kullaniciAdi: $scope.txtKullaniciAdi, kullaniciSifre: $scope.txtSifre },
+                headers: { "Content-Type": "application/json" }
+            };
+            $http(post).then(function () {
+                $scope.deg = "kayıt başarılı";
+                $window.location.href = '/CTL.html';
+            }, function () {
+                $scope.deg = "kayıt sırasında bir sorun oluştu";
+            });           
+        }
+
+    });
+</script>
+    </form>
+</body>
+</html>

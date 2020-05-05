@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title></title>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <script src="js/AngularJS v1.7.9.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular-cookies.js" integrity="sha256-Wre6oTmOjQqjoFHH+ns2kIaDB7SgJa3W8BHb6ZZoxYQ=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <script src="js/Ctl_Modules.js"></script>
+    <script src="js/CTL_Controllers.js"></script>
+    <script src="js/Ctl_Services.js"></script>
+
+    <form id="form1" runat="server">
+        <div class="container" ng-app="myAppCtlTable" ng-controller="myCtrlCtlTableListeleme">
+            <table border="1" style="width:100%;border-collapse:collapse" class="co-12">
+                <tr>
+                    <td><p>Hoş Geldin {{kullaniciAdi}}</p></td>
+                </tr>
+            </table>
+
+            <table id="tableCtl" style="width:100%;border-collapse:collapse" class="table table-bordered table-striped">
+                <thead class="bg-dark text-danger text-uppercase">
+                    <tr ng-repeat="x in ctlBasliklarListe">
+                        <th ng-model="baslikKullaniciAdi">{{kullaniciAdi}}</th>
+                        <th ng-model="baslikKol1">{{x.baslikKol1}}</th>
+                        <th ng-model="baslikKol2">{{x.baslikKol2}}</th>
+                        <th ng-model="baslikKol3">{{x.baslikKol3}}</th>
+                        <th ng-model="baslikKol4">{{x.baslikKol4}}</th>
+                        <th ng-model="baslikKol5">{{x.baslikKol5}}</th>
+                        <th ng-model="baslikKol6">{{x.baslikKol6}}</th>
+                        <th ng-model="baslikKol7">{{x.baslikKol7}}</th>
+                    </tr>
+                </thead>
+                <tbody ng-controller="myCtrlDegerGirme">
+                    <tr ng-repeat="x in ctlListe" >
+                        <td ng-model="gun">
+                            <button class="btn btn-primary" 
+                                    type="button" 
+                                    ng-model="$index" 
+                                    ng-click="CtlDegerGirme(x,$index,x.kol1,x.kol2,x.kol3,x.kol4,x.kol5,x.kol6,x.kol7)">
+                                {{x.editing ? 'Kaydet' : x.gun}}
+                            </button>
+                        </td>
+                        <td ng-model="ctlKol1">
+                            <span ng-if="!x.editing">{{x.kol1}}</span>
+                            <span ng-if="x.editing"><input class="text-center" type="text" ng-model="x.kol1" style="width:100%;margin:0" /></span>
+                        </td>
+                        <td ng-model="ctlKol2">
+                            <span ng-if="!x.editing">{{x.kol2}}</span>
+                            <span ng-if="x.editing"><input class="text-center" type="text" style="width:100%;margin:0" ng-model="x.kol2"/></span>
+                        </td>
+
+                        <td ng-model="ctlKol3">
+                            <span ng-if="!x.editing">{{x.kol3}}</span>
+                            <span ng-if="x.editing"><input class="text-center" type="text" style="width:100%;margin:0" ng-model="x.kol3"/></span>
+                        </td>
+                        <td ng-model="ctlKol4">
+                            <span ng-if="!x.editing">{{x.kol4}}</span>
+                            <span ng-if="x.editing"><input class="text-center" type="text" style="width:100%;margin:0" ng-model="x.kol4"/></span>
+                        </td>
+                        <td ng-model="ctlKol5">
+                            <span ng-if="!x.editing">{{x.kol5}}</span>
+                            <span ng-if="x.editing"><input class="text-center" type="text" style="width:100%;margin:0" ng-model="x.kol5"/></span>
+                        </td>
+                        <td ng-model="ctlKol6">
+                            <input class="text-center" type="checkbox" ng-disabled="x.editing ? false : true" style="width:100%;margin:0" ng-model="x.kol6"/>
+                        </td>
+                        <td ng-model="ctlKol7">
+                            <input class="text-center" type="checkbox" ng-disabled="x.editing ? false : true" style="width:100%;margin:0" ng-model="x.kol7"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+
+    <!-- Bootstrap CSS -->
+
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/cssCtl.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+</head>
+<body id="bodyCtlGrisSayfasi">
+    <script src="js/AngularJS v1.7.9.js"></script>
+    <script>
+        var angGirisForm = angular.module("myAppCtlTable", []);
+
+        angGirisForm.controller("myCtrlGirisForm", function ($scope, $http) {
+            $scope.btnGiris_Click = function () {
+
+            }
+        });
+    </script>
+        <div id="modalGirisSayfasi" ng-app="angGirisForm" ng-controller="myCtrlGirisForm">
+            <div class="modal-content">
+                <div class="modal-header justify-content-center">
+                    <h3 class="modal-title text-center" id="modalGirisBaslik">CTL</h3>
+                </div>
+                <div class="modal-body justify-content-center">
+                    <div class="container col">
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="txtKullaniciAdi">Kullanıcı Adı</label>
+                                <input type="text" class="form-control" ng-required="true" ng-model="txtKullaniciAdi" placeholder="Kullanıcı Adı" runat="server" />
+                                <label for="txtSifre">Şifre</label>
+                                <input type="password" class="form-control" ng-required="true" ng-model="txtSifre" placeholder="Şifre" runat="server" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <input type="button" value="İleri" class="btn btn-primary btn-block" id="btnGiris" ng-click="btnGiris_Click()" />
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col">
+                            <label for="txtSifre">Hesabınız yok mu?</label>
+                            <a href="YeniUye.aspx" id="btnYeniUyelik" runat="server">Kayıt Ol</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col">
+                            <label for="txtSifre"></label>
+                            <a href="GroupGirisSayfasi.aspx" id="btnGrupGirisSayfasi" runat="server">Grup Girişi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

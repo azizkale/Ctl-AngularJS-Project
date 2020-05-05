@@ -1,0 +1,143 @@
+﻿/*şemail*/
+#bodyCtl {
+    background-image: url('../img/bckrngd.png');
+    background-repeat:no-repeat;
+    background-size:auto;
+}
+#table1, #table2{
+font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+border-color:blue;
+border-width:2px;
+border-radius:5px;
+text-align:center;
+}
+#divTable1, #divTable2, #divTable3 {
+    border: solid 5px blue;
+    border-radius: 5px;
+    margin-bottom: 1px
+}
+#divTable2 {
+    padding: 0 5px;
+}
+
+
+
+
+
+/*asp.net den html ye veri aktarma için kullanılan labeller*/
+.invisible {
+    display: none;
+}
+
+
+
+/*======================...dan önce ======================*/
+@media (min-width: 481px) {
+    #modalGirisSayfasi, #yeniUyeGirisSayfasi {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) !important;
+    }
+
+}
+
+@media (max-width: 576px) {
+    #table1 , #table2 {
+        font-size:25px;
+    }
+    /*#bodyCtlGrisSayfasi {
+        padding: 25% 0!important;
+    }*/
+}
+
+@media (max-width: 768px) {
+    #divBaslik {
+        font-size: 30px;
+    }
+
+    #divHosGeldin {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 992px) {
+   
+}
+
+@media (max-width: 1200px) {
+}
+
+
+/*======================...dan sonra======================*/
+@media (min-width: 576px) {
+    #table2 tr td:nth-child(2) {
+        padding:0 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    
+}
+
+@media (max-width: 992px) {
+   
+}
+
+@media (max-width: 1200px) {
+   
+}
+/*=========================================================*/
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color:beige;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+    .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+    .sidenav a:hover {
+        color: #f1f1f1;
+    }
+
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+#main {
+   border-radius:30px;
+    transition: margin-right .5s;
+    padding: 0px;
+    float:right!important;
+    width:50px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 5px;
+    }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+}
+
+
