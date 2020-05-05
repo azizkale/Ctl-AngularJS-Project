@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html ng-app="myAppGrup">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>CTL | Grup</title>
+    <!--CSS-->
+    <link href="GrupCss/bootstrap.css" rel="stylesheet" />
+    <link href="GrupCss/GrupCSS.css" rel="stylesheet" />
+
+    <!--Scripts-->
+    <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+    <script src="GrupJs/jquery-3.2.1.js"></script>
+    <script src="GrupJs/bootstrap.js"></script>
+    <script src="GrupJs/AngularJS v1.7.9.js"></script>
+    <script src="GrupJs/angularCookies_v1.7.9.js"></script>
+    <script src="GrupJs/GrupModules.js"></script>
+    <script src="GrupJs/GrupControllers.js"></script>
+    <script src="GrupJs/GrupServices.js"></script>
+    <script src="GrupJs/angularCookies_v1.7.9.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-route.js"></script>
+   
+</head>
+<body>
+    <div class="container-fluid" ng-controller="ctrlTableListeleme">
+        <table border="1" style="width:100%;border-collapse:collapse" class="co-12">
+            <tr>
+                <td><p>Hoş Geldin: {{grupCtl[0][1]}}</p></td>
+                <td colspan="1">
+                    <input type="button" value="&#9776" id="main" ng-click="openNav()" />
+                </td>
+            </tr>
+            <tr ng-repeat="x in grupBasliklar">
+                <td colspan="2">
+                    <p>{{x.grupAdi}}</p>
+                </td>
+            </tr>
+        </table>
+        <table id="tableGrupCtl" style="width:100%;border-collapse:collapse" class="table table-bordered table-striped">
+            <thead class="bg-dark text-danger text-uppercase">
+                <tr ng-repeat="x in grupBasliklar">
+                    <th></th>
+                    <th ng-if="kolonGizleDeg[1]">{{x.gKol1}}</th>
+                    <th ng-if="kolonGizleDeg[2]">{{x.gKol2}}</th>
+                    <th ng-if="kolonGizleDeg[3]">{{x.gKol3}}</th>
+                    <th ng-if="kolonGizleDeg[4]">{{x.gKol4}}</th>
+                    <th ng-if="kolonGizleDeg[5]">{{x.gKol5}}</th>
+                    <th ng-if="kolonGizleDeg[6]">{{x.gKol6}}</th>
+                    <th ng-if="kolonGizleDeg[7]">{{x.gKol7}}</th>
+                    <th ng-if="kolonGizleDeg[8]">{{x.gKol8}}</th>
+                    <th ng-if="kolonGizleDeg[9]">{{x.gKol9}}</th>
+                    <th ng-if="kolonGizleDeg[10]">{{x.gKol10}}</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="x in grupCtl">
+                    <td>{{x[1]}}</td>
+                    <td ng-if="kolonGizleDeg[1]">{{x[7]}}</td>
+                    <td ng-if="kolonGizleDeg[2]">{{x[8]}}</td>
+                    <td ng-if="kolonGizleDeg[3]">{{x[9]}}</td>
+                    <td ng-if="kolonGizleDeg[4]">{{x[10]}}</td>
+                    <td ng-if="kolonGizleDeg[5]">{{x[11]}}</td>
+                    <td ng-if="kolonGizleDeg[6]">{{x[12]}}</td>
+                    <td ng-if="kolonGizleDeg[7]">{{x[13]}}</td>
+                    <td ng-if="kolonGizleDeg[8]">{{x[14]}}</td>
+                    <td ng-if="kolonGizleDeg[9]">{{x[15]}}</td>
+                    <td ng-if="kolonGizleDeg[10]">{{x[16]}}</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!--<%--========================= Uyeler Listesi ======================--%>-->
+    <div id="idUyeListesi" ng-hide="gizleUyelerListesi" class="card text-center cardMenuContainer" ng-controller="ctrlUyelerListesi">
+        <div>
+            <div class="card-header">
+                <h3>Grup Üyeleri</h3>
+            </div>
+            <div class="card-body container" style="margin-bottom:3%;">
+                <div class="row justify-content-center">
+                    <table border="1" style="border-collapse:collapse;margin-top:3%;" class="col-6">
+                        <tr>
+                            <th class="text-center">isim</th>
+                            <th class="text-center">statu</th>
+                            <th class="text-center">durum</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        <tr ng-repeat="x in grupUyeleriListesi">
+                            <td ng-hide="hide=true">{{x.id}}</td>
+                            <td>{{x.uye}}</td>
+                            <td>{{x.statu}}</td>
+                            <td>{{x.uyeAktifMi ? 'aktif' : 'pasif'}}</td>
+                            <td><input ng-if="$index != 0" type="button" value="Kabul" ng-click="uyeKabul(x.id,x.uye,grupUyeleriListesi[0].uye)" /></td>
+                            <td><input ng-if="$index != 0" type="button" value="Red" ng-click="uyeRed(x.id,x.uye,grupUyeleriListesi[0].uye)" /></td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+            <input type="button" class="btn btn-secondary" ng-click="MenuDivleriGizleme('idUyeListesi')" value="Kapat" />
+        </div>      
+    </div>
+   
+    <!--<%--========================= XXXXXX ======================--%>-->
+    <div id="idGizleXXX" ng-hide="gizleXXX" class="card text-center cardMenuContainer" ng-controller="ctrlXXX">
+        <div>
+            <div class="card-header">
+                <h3>XXX</h3>
+            </div>
+            <div class="card-body container" style="margin-bottom:3%;">
+                <div class="row justify-content-center">
+                    <table border="1" style="border-collapse:collapse;margin-top:3%;" class="col-6"></table>
+                </div>
+
+            </div>
+            <input type="button" class="btn btn-secondary" ng-click="MenuDivleriGizleme('idGizleXXX')" value="Kapat" />
+        </div>
+    </div>
+
+    <!--<%--============================Yana Açılır Menü========================--%>-->
+    <div id="YanMenu" class="sidenav" ng-controller="myCtrlYanaAcilirMenu">
+        <a href="javascript:void(0)" class="closebtn" ng-click="closeNav()">&times;</a>
+        <a href="#" ng-click="MenuDivleriGosterme('idUyeListesi')" class="btn btn-outline-primary">Üyeler</a>
+        <a href="#" ng-click="MenuDivleriGosterme('idGizleXXX')" class="btn btn-outline-primary">XXX</a>
+        <a href="#" ng-click="clickCikis()" class="btn btn-outline-primary">Çıkış</a>
+
+    </div>
+</body>
+</html>

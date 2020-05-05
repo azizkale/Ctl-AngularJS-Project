@@ -4,34 +4,37 @@
     background-repeat:no-repeat;
     background-size:auto;
 }
-#table1, #table2{
-font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-border-color:blue;
-border-width:2px;
-border-radius:5px;
-text-align:center;
-}
-#divTable1, #divTable2, #divTable3 {
-    border: solid 5px blue;
-    border-radius: 5px;
-    margin-bottom: 1px
-}
-#divTable2 {
-    padding: 0 5px;
+
+
+#cardMenuContainer {
+    position: fixed;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, 0%) !important;
+    z-index: 1;
+    height: auto;
+    width: -webkit-fill-available;
+    padding-bottom: 3%;
 }
 
+#cardMenuContainer .row{
+    padding-top:3%;
+}
 
+    #cardMenuContainer .card-body {
+        position: relative;
+        height: 200px;
+        overflow: auto;
+    }
 
-
-
-/*asp.net den html ye veri aktarma için kullanılan labeller*/
-.invisible {
-    display: none;
+#tableCtlIslemleri {
+    width: 80%;
+    border-collapse: collapse;
+    font-size: x-large;
 }
 
 
-
-/*======================...dan önce ======================*/
+/*======================...dan küçükse ======================*/
 @media (min-width: 481px) {
     #modalGirisSayfasi, #yeniUyeGirisSayfasi {
         position: absolute;
@@ -39,16 +42,12 @@ text-align:center;
         left: 50%;
         transform: translate(-50%, -50%) !important;
     }
-
 }
 
 @media (max-width: 576px) {
     #table1 , #table2 {
         font-size:25px;
-    }
-    /*#bodyCtlGrisSayfasi {
-        padding: 25% 0!important;
-    }*/
+    }   
 }
 
 @media (max-width: 768px) {
@@ -69,25 +68,23 @@ text-align:center;
 }
 
 
-/*======================...dan sonra======================*/
+/*======================...dan büyükse======================*/
 @media (min-width: 576px) {
-    #table2 tr td:nth-child(2) {
-        padding:0 8px;
-    }
+   
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
     
 }
 
-@media (max-width: 992px) {
+@media (min-width: 992px) {
    
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 1200px) {
    
 }
-/*=========================================================*/
+/*=======================Yana Açılır Menü==================================*/
 .sidenav {
     height: 100%;
     width: 0;

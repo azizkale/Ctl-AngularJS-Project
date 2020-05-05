@@ -8,7 +8,7 @@
     <link href="css/bootstrap.css" rel="stylesheet" />
     <link href="css/cssCtl.css" rel="stylesheet" />
 
-   
+
 </head>
 <body>
     <!--Sctipts-->
@@ -24,7 +24,8 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-route.js"></script>
 
     <div id="divTables" class="container-fluid" ng-controller="myCtrlCtlTableListeleme">
-
+        
+        <!--CTL ve GRUPCTL BAŞLIKLARI TABLOSU-->
         <table border="1" style="width:100%;border-collapse:collapse" class="co-12">
             <tr>
                 <td><p>Hoş Geldin {{kullaniciAdi}}</p></td>
@@ -35,10 +36,15 @@
             <tr>
                 <td colspan="2">
                     <p>
-                        {{ctlAdi}}<br/>                        
+                        {{ctlAdi}}<br />
                     </p>
                 </td>
+            </tr>
 
+            <tr style="max-width:100%" class="col-12">
+                <!--şahsi başlıklar{{ctlBasliklarListe}}
+            <br /> grup başlılar {{gurpCtlBasiklarListesi}}
+            <br />ctl{{ctlListe}}-->
             </tr>
         </table>
 
@@ -46,64 +52,185 @@
         <table id="tableCtl" style="width:100%;border-collapse:collapse" class="table table-bordered table-striped">
             <!--Şahsi CTL TBaşlıkları-->
             <thead class="bg-dark text-danger text-uppercase">
-                <tr ng-repeat="x in ctlBasliklarListe">
+                <tr ng-hide="sahsiCTL">
                     <th ng-model="baslikKullaniciAdi">{{ctlListe[1]["ay"]}}/{{ctlListe[1]["yil"]}}</th>
-                    <th ng-model="baslikKol1" ng-hide="kolgiz1">{{x.baslikKol1 | limitTo:5}}</th>
-                    <th ng-model="baslikKol2" ng-hide="kolgiz2">{{x.baslikKol2 | limitTo:5}}</th>
-                    <th ng-model="baslikKol3" ng-hide="kolgiz3">{{x.baslikKol3 | limitTo:5}}</th>
-                    <th ng-model="baslikKol4" ng-hide="kolgiz4">{{x.baslikKol4 | limitTo:5}}</th>
-                    <th ng-model="baslikKol5" ng-hide="kolgiz5">{{x.baslikKol5 | limitTo:5}}</th>
-                    <th ng-model="baslikKol6" ng-hide="kolgiz6">{{x.baslikKol6 | limitTo:5}}</th>
-                    <th ng-model="baslikKol7" ng-hide="kolgiz7">{{x.baslikKol7 | limitTo:5}}</th>
+                    <th ng-model="baslikKol1" ng-hide="kolgiz1">{{ctlBasliklarListe[0].baslikKol1}}</th>
+                    <th ng-model="baslikKol2" ng-hide="kolgiz2">{{ctlBasliklarListe[0].baslikKol2 }}</th>
+                    <th ng-model="baslikKol3" ng-hide="kolgiz3">{{ctlBasliklarListe[0].baslikKol3 }}</th>
+                    <th ng-model="baslikKol4" ng-hide="kolgiz4">{{ctlBasliklarListe[0].baslikKol4 }}</th>
+                    <th ng-model="baslikKol5" ng-hide="kolgiz5">{{ctlBasliklarListe[0].baslikKol5 }}</th>
+                    <th ng-model="baslikKol6" ng-hide="kolgiz6">{{ctlBasliklarListe[0].baslikKol6 }}</th>
+                    <th ng-model="baslikKol7" ng-hide="kolgiz7">{{ctlBasliklarListe[0].baslikKol7 }}</th>
+                    <th ng-model="baslikKol8" ng-hide="kolgiz8">{{ctlBasliklarListe[0].baslikKol8 }}</th>
+                    <th ng-model="baslikKol9" ng-hide="kolgiz9">{{ctlBasliklarListe[0].baslikKol9 }}</th>
+                    <th ng-model="baslikKol10" ng-hide="kolgiz10">{{ctlBasliklarListe[0].baslikKol10 }}</th>
                 </tr>
                 <!--GRUP CTL TBaşlıkları-->
-                <tr ng-repeat="x in gurpCtlBasiklarListesi">
+                <tr ng-repeat="x in gurpCtlBasiklarListesi" ng-hide="grupCTL">
                     <th ng-model="baslikKullaniciAdi"></th>
-                    <th ng-model="gKol1" ng-hide="kolgiz1">{{x.gKol1 | limitTo:5}}</th>
-                    <th ng-model="gKol2" ng-hide="kolgiz2">{{x.gKol2 | limitTo:5}}</th>
-                    <th ng-model="gKol3" ng-hide="kolgiz3">{{x.gKol3 | limitTo:5}}</th>
-                    <th ng-model="gKol4" ng-hide="kolgiz4">{{x.gKol4 | limitTo:5}}</th>
-                    <th ng-model="gKol5" ng-hide="kolgiz5">{{x.gKol5 | limitTo:5}}</th>
-                    <th ng-model="gKol6" ng-hide="kolgiz6">{{x.gKol6 | limitTo:5}}</th>
-                    <th ng-model="gKol7" ng-hide="kolgiz7">{{x.gKol7 | limitTo:5}}</th>
+                    <th ng-model="gKol1" ng-hide="kolgiz1">{{x.gKol1}}</th>
+                    <th ng-model="gKol2" ng-hide="kolgiz2">{{x.gKol2}}</th>
+                    <th ng-model="gKol3" ng-hide="kolgiz3">{{x.gKol3}}</th>
+                    <th ng-model="gKol4" ng-hide="kolgiz4">{{x.gKol4}}</th>
+                    <th ng-model="gKol5" ng-hide="kolgiz5">{{x.gKol5}}</th>
+                    <th ng-model="gKol6" ng-hide="kolgiz6">{{x.gKol6}}</th>
+                    <th ng-model="gKol7" ng-hide="kolgiz7">{{x.gKol7}}</th>
+                    <th ng-model="gKol8" ng-hide="kolgiz8">{{x.gKol8}}</th>
+                    <th ng-model="gKol9" ng-hide="kolgiz9">{{x.gKol9}}</th>
+                    <th ng-model="gKol10" ng-hide="kolgiz10">{{x.gKol10}}</th>
                 </tr>
             </thead>
+
             <tbody ng-controller="myCtrlDegerGirme">
                 <tr ng-repeat="x in ctlListe">
+                    <!--isim kolonu-->
                     <td ng-model="gun">
                         <button class="btn btn-primary justify-content-sm-center" style="width:40px;padding:0.5rem 0rem;font-size: 0.7rem;"
                                 type="button"
                                 ng-model="$index"
-                                ng-click="CtlDegerGirme(x,$index,x.kol1,x.kol2,x.kol3,x.kol4,x.kol5,x.kol6,x.kol7)">
+                                ng-click="CtlDegerGirme(x,$index,x.kol1,x.kol2,x.kol3,x.kol4,x.kol5,x.kol6,x.kol7,x.kol8,x.kol9,x.kol10)">
                             {{x.editing ? 'Kaydet' : x.gun}}
                         </button>
                     </td>
-                    <td ng-model="ctlKol1" ng-hide="kolgiz1" class="kolonlar" style="width:40px">
+
+                    <!--1.KOLON-->
+                    <td ng-model="ctlKol1" ng-hide="kolgiz1" ng-if="kolifText1" class="kolonlar" style="width:40px">
                         <span ng-if="!x.editing">{{x.kol1}}</span>
                         <span ng-if="x.editing"><input class="text-center" type="text" ng-model="x.kol1" style="width:100%;margin:0" /></span>
                     </td>
-                    <td ng-model="ctlKol2" ng-hide="kolgiz2" class="kolonlar">
-                        <span ng-if="!x.editing">{{x.kol2}}</span>
-                        <span ng-if="x.editing"><input class="text-center" type="text" style="width:100%;margin:0" ng-model="x.kol2" /></span>
+                    <td ng-model="ctlKol1" ng-hide="kolgiz1" ng-if="kolifCheckBox1" class="kolonlar" style="width:40px">
+                        <span ng-if="!x.editing">
+                            <input class="text-center" type="checkbox" ng-disabled="x.editing ? false : true" style="width:100%;margin:0" ng-model="x.kol1" />
+                        </span>
+                        <span ng-if="x.editing">
+                            <input class="text-center" type="checkbox" ng-model="x.kol1" style="width:100%;margin:0" />
+                        </span>
                     </td>
 
-                    <td ng-model="ctlKol3" ng-hide="kolgiz3" class="kolonlar">
+                    <!--2.KOLON-->
+                    <td ng-model="ctlKol2" ng-hide="kolgiz2" ng-if="kolifText2" class="kolonlar" style="width:40px">
+                        <span ng-if="!x.editing">{{x.kol2}}</span>
+                        <span ng-if="x.editing"><input class="text-center" type="text" ng-model="x.kol2" style="width:100%;margin:0" /></span>
+                    </td>
+                    <td ng-model="ctlKol2" ng-hide="kolgiz2" ng-if="kolifCheckBox2" class="kolonlar" style="width:40px">
+                        <span ng-if="!x.editing">
+                            <input class="text-center" type="checkbox" ng-disabled="x.editing ? false : true" style="width:100%;margin:0" ng-model="x.kol2" />
+                        </span>
+                        <span ng-if="x.editing">
+                            <input class="text-center" type="checkbox" ng-model="x.kol2" style="width:100%;margin:0" />
+                        </span>
+                    </td>
+
+                    <!--3.KOLON-->
+                    <td ng-model="ctlKol3" ng-hide="kolgiz3" ng-if="kolifText3" class="kolonlar" style="width:40px">
                         <span ng-if="!x.editing">{{x.kol3}}</span>
-                        <span ng-if="x.editing"><input class="text-center" type="text" style="width:100%;margin:0" ng-model="x.kol3" /></span>
+                        <span ng-if="x.editing"><input class="text-center" type="text" ng-model="x.kol3" style="width:100%;margin:0" /></span>
                     </td>
-                    <td ng-model="ctlKol4" ng-hide="kolgiz4" class="kolonlar">
+                    <td ng-model="ctlKol3" ng-hide="kolgiz3" ng-if="kolifCheckBox3" class="kolonlar" style="width:40px">
+                        <span ng-if="!x.editing">
+                            <input class="text-center" type="checkbox" ng-disabled="x.editing ? false : true" style="width:100%;margin:0" ng-model="x.kol3" />
+                        </span>
+                        <span ng-if="x.editing">
+                            <input class="text-center" type="checkbox" ng-model="x.kol3" style="width:100%;margin:0" />
+                        </span>
+                    </td>
+
+                    <!--4.KOLON-->
+                    <td ng-model="ctlKol4" ng-hide="kolgiz4" ng-if="kolifText4" class="kolonlar" style="width:40px">
                         <span ng-if="!x.editing">{{x.kol4}}</span>
-                        <span ng-if="x.editing"><input class="text-center" type="text" style="width:100%;margin:0" ng-model="x.kol4" /></span>
+                        <span ng-if="x.editing"><input class="text-center" type="text" ng-model="x.kol4" style="width:100%;margin:0" /></span>
                     </td>
-                    <td ng-model="ctlKol5" ng-hide="kolgiz5" class="kolonlar">
+                    <td ng-model="ctlKol4" ng-hide="kolgiz4" ng-if="kolifCheckBox4" class="kolonlar" style="width:40px">
+                        <span ng-if="!x.editing">
+                            <input class="text-center" type="checkbox" ng-disabled="x.editing ? false : true" style="width:100%;margin:0" ng-checked="x.kol4" />
+                        </span>
+                        <span ng-if="x.editing">
+                            <input class="text-center" type="checkbox" ng-model="x.kol4" style="width:100%;margin:0" />
+                        </span>
+                    </td>
+
+                    <!--5.KOLON-->
+                    <td ng-model="ctlKol5" ng-hide="kolgiz5" ng-if="kolifText5" class="kolonlar" style="width:40px">
                         <span ng-if="!x.editing">{{x.kol5}}</span>
-                        <span ng-if="x.editing"><input class="text-center" type="text" style="width:100%;margin:0" ng-model="x.kol5" /></span>
+                        <span ng-if="x.editing"><input class="text-center" type="text" ng-model="x.kol5" style="width:100%;margin:0" /></span>
                     </td>
-                    <td ng-model="ctlKol6" ng-hide="kolgiz6" class="kolonlar">
-                        <input class="text-center" type="checkbox" ng-disabled="x.editing ? false : true" style="width:100%;margin:0" ng-model="x.kol6" />
+                    <td ng-model="ctlKol5" ng-hide="kolgiz5" ng-if="kolifCheckBox5" class="kolonlar" style="width:40px">
+                        <span ng-if="!x.editing">
+                            <input class="text-center" type="checkbox" ng-disabled="x.editing ? false : true" style="width:100%;margin:0" ng-model="x.kol5" />
+                        </span>
+                        <span ng-if="x.editing">
+                            <input class="text-center" type="checkbox" ng-model="x.kol5" style="width:100%;margin:0" />
+                        </span>
                     </td>
-                    <td ng-model="ctlKol7" ng-hide="kolgiz7" class="kolonlar">
-                        <input class="text-center" type="checkbox" ng-disabled="x.editing ? false : true" style="width:100%;margin:0" ng-model="x.kol7" />
+
+                    <!--6.KOLON-->
+                    <td ng-model="ctlKol6" ng-hide="kolgiz6" ng-if="kolifText6" class="kolonlar" style="width:40px">
+                        <span ng-if="!x.editing">{{x.kol6}}</span>
+                        <span ng-if="x.editing"><input class="text-center" type="text" ng-model="x.kol6" style="width:100%;margin:0" /></span>
+                    </td>
+                    <td ng-model="ctlKol6" ng-hide="kolgiz6" ng-if="kolifCheckBox6" class="kolonlar" style="width:40px">
+                        <span ng-if="!x.editing">
+                            <input class="text-center" type="checkbox" ng-disabled="x.editing ? false : true" style="width:100%;margin:0" ng-model="x.kol6" />
+                        </span>
+                        <span ng-if="x.editing">
+                            <input class="text-center" type="checkbox" ng-model="x.kol6" style="width:100%;margin:0" />
+                        </span>
+                    </td>
+
+                    <!--7.KOLON-->
+                    <td ng-model="ctlKol7" ng-hide="kolgiz7" ng-if="kolifText7" class="kolonlar" style="width:40px">
+                        <span ng-if="!x.editing">{{x.kol7}}</span>
+                        <span ng-if="x.editing"><input class="text-center" type="text" ng-model="x.kol7" style="width:100%;margin:0" /></span>
+                    </td>
+                    <td ng-model="ctlKol7" ng-hide="kolgiz7" ng-if="kolifCheckBox7" class="kolonlar" style="width:40px">
+                        <span ng-if="!x.editing">
+                            <input class="text-center" type="checkbox" ng-disabled="x.editing ? false : true" style="width:100%;margin:0" ng-model="x.kol7" />
+                        </span>
+                        <span ng-if="x.editing">
+                            <input class="text-center" type="checkbox" ng-model="x.kol7" style="width:100%;margin:0" />
+                        </span>
+                    </td>
+
+                    <!--8.KOLON-->
+                    <td ng-model="ctlKol8" ng-hide="kolgiz8" ng-if="kolifText8" class="kolonlar" style="width:40px">
+                        <span ng-if="!x.editing">{{x.kol8}}</span>
+                        <span ng-if="x.editing"><input class="text-center" type="text" ng-model="x.kol8" style="width:100%;margin:0" /></span>
+                    </td>
+                    <td ng-model="ctlKol8" ng-hide="kolgiz8" ng-if="kolifCheckBox8" class="kolonlar" style="width:40px">
+                        <span ng-if="!x.editing">
+                            <input class="text-center" type="checkbox" ng-disabled="x.editing ? false : true" style="width:100%;margin:0" ng-model="x.kol8" />
+                        </span>
+                        <span ng-if="x.editing">
+                            <input class="text-center" type="checkbox" ng-model="x.kol8" style="width:100%;margin:0" />
+                        </span>
+                    </td>
+
+                    <!--9.KOLON-->
+                    <td ng-model="ctlKol9" ng-hide="kolgiz9" ng-if="kolifText9" class="kolonlar" style="width:40px">
+                        <span ng-if="!x.editing">{{x.kol9}}</span>
+                        <span ng-if="x.editing"><input class="text-center" type="text" ng-model="x.kol9" style="width:100%;margin:0" /></span>
+                    </td>
+                    <td ng-model="ctlKol9" ng-hide="kolgiz9" ng-if="kolifCheckBox9" class="kolonlar" style="width:40px">
+                        <span ng-if="!x.editing">
+                            <input class="text-center" type="checkbox" ng-disabled="x.editing ? false : true" style="width:100%;margin:0" ng-model="x.kol9" />
+                        </span>
+                        <span ng-if="x.editing">
+                            <input class="text-center" type="checkbox" ng-model="x.kol9" style="width:100%;margin:0" />
+                        </span>
+                    </td>
+
+                    <!--10.KOLON-->
+                    <td ng-model="ctlKol10" ng-hide="kolgiz10" ng-if="kolifText10" class="kolonlar" style="width:40px">
+                        <span ng-if="!x.editing">{{x.kol10}}</span>
+                        <span ng-if="x.editing"><input class="text-center" type="text" ng-model="x.kol10" style="width:100%;margin:0" /></span>
+                    </td>
+                    <td ng-model="ctlKol10" ng-hide="kolgiz10" ng-if="kolifCheckBox10" class="kolonlar" style="width:40px">
+                        <span ng-if="!x.editing">
+                            <input class="text-center" type="checkbox" ng-disabled="x.editing ? false : true" style="width:100%;margin:0" ng-model="x.kol10" />
+                        </span>
+                        <span ng-if="x.editing">
+                            <input class="text-center" type="checkbox" ng-model="x.kol10" style="width:100%;margin:0" />
+                        </span>
                     </td>
                 </tr>
             </tbody>
@@ -162,13 +289,7 @@
                                 <tr ng-repeat="x in mevcutDonemListesi" ng-init="tur='sahsictl'">
                                     <td><button ng-click="clickSeciliDonemiAc($index,kullaniciAdi,tur)">seç</button></td>
                                     <td>{{x.ay}} / {{x.yil}}</td>
-                                </tr>
-                                <tr ng-repeat="y in  mevcutGrupDonemleriListesi" ng-init="tur='grupctl'">
-                                    <td><button ng-click="clickSeciliDonemiAc($index,kullaniciAdi,tur)">seç</button></td>
-                                    <td>{{y.donemBaslangic}} </td>
-                                    <td> {{y.donemBitis}}</td>
-                                    <td>{{y.gunSayisi}} Gün</td>
-                                </tr>
+                                </tr>                               
                             </tbody>
                         </table>
                     </div>
@@ -212,7 +333,7 @@
             <form name="myForm">
                 <div id="divCtlIslemleri">
                     <div class="card-header">
-                        <h3>CTL İşlemler - {{ctlAdi}}</h3>
+                        <h3>CTL İşlemleri - {{ctlAdi}}</h3>
                     </div>
                     <div class="card-body container">
                         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -229,102 +350,117 @@
                         <div class="tab-content" id="pills-tabContent">
                             <!--ÇTL Başlık isim değiştirme, kolon gizleme-->
                             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                                <div class="row justify-content-center" style="padding-top:0">                                    
+                                <div class="row justify-content-center" style="padding-top:0">
                                     <!--ŞAhsi CTL başlık işlemleri-->
                                     <table border="0" id="tableCtlIslemleri" ng-hide="hideBaslikDegistirmeSahsi">
                                         <thead>
                                             <tr>
                                                 <th></th>
-                                                <th></th>
                                                 <th class="text-center">Başlıklar</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <!--1.KOLON-->
                                             <tr ng-repeat="x in ctlBasliklarListe" ng-init="tur='sahsi'">
                                                 <td>
                                                     <button class="btn btn-info" ng-class="{'btn-success' : x.editing1==true }" ng-click="baslikDuzenle(x,$index+1,tur)" ng-disabled="kolgiz1">{{x.editing1 ? 'Kaydet' : 'Düzenle'}}</button>
-                                                </td>
-                                                <!--Gizle / Göster Buttonları-->
-                                                <td>
-                                                    <input type="button" class="btn btn-warning" ng-click="KolonGizle(x.baslikKol1,$index+1,$event,tur)" value="{{btnGizle1}}" />
                                                 </td>
                                                 <td>
                                                     <span name="input1" ng-if="!x.editing1">{{x.baslikKol1}}</span>
                                                     <input required name="input1" ng-if="x.editing1" type="text" value="{{x.baslikKol1}}" maxlength="5" />
                                                 </td>
                                             </tr>
+                                            <!--2.KOLON-->
                                             <tr ng-repeat="x in ctlBasliklarListe" ng-init="tur='sahsi'">
                                                 <td>
                                                     <button class="btn btn-info" ng-class="{'btn-success' : x.editing2==true }" ng-click="baslikDuzenle(x,$index+2,tur)" ng-disabled="kolgiz2">{{x.editing2 ? 'Kaydet' : 'Düzenle'}} </button>
-                                                </td>
-                                                <td>
-                                                    <input type="button" class="btn btn-warning" ng-click="KolonGizle(x.baslikKol2,$index+2,$event,tur)" value="{{btnGizle2}}" />
                                                 </td>
                                                 <td>
                                                     <span ng-if="!x.editing2">{{x.baslikKol2}}</span>
                                                     <input required name="input2" ng-if="x.editing2" type="text" value="{{x.baslikKol2}}" maxlength="5" />
                                                 </td>
                                             </tr>
+                                            <!--3.KOLON-->
                                             <tr ng-repeat="x in ctlBasliklarListe" ng-init="tur='sahsi'">
                                                 <td>
                                                     <button class="btn btn-info" ng-class="{'btn-success' : x.editing3==true }" ng-click="baslikDuzenle(x,$index+3,tur)" ng-disabled="kolgiz3">{{x.editing3 ? 'Kaydet' : 'Düzenle'}} </button>
-                                                </td>
-                                                <td>
-                                                    <input type="button" class="btn btn-warning" ng-click="KolonGizle(x.baslikKol3,$index+3,$event,tur)" value="{{btnGizle3}}" />
                                                 </td>
                                                 <td>
                                                     <span ng-if="!x.editing3">{{x.baslikKol3}}</span>
                                                     <input required name="input3" ng-if="x.editing3" type="text" value="{{x.baslikKol3}}" maxlength="5" />
                                                 </td>
                                             </tr>
+                                            <!--4.KOLON-->
                                             <tr ng-repeat="x in ctlBasliklarListe" ng-init="tur='sahsi'">
                                                 <td>
                                                     <button class="btn btn-info" ng-class="{'btn-success' : x.editing4==true }" ng-click="baslikDuzenle(x,$index+4,tur)" ng-disabled="kolgiz4">{{x.editing4 ? 'Kaydet' : 'Düzenle'}} </button>
-                                                </td>
-                                                <td>
-                                                    <input type="button" class="btn btn-warning" ng-click="KolonGizle(x.baslikKol4,$index+4,$event,tur)" value="{{btnGizle4}}" />
                                                 </td>
                                                 <td>
                                                     <span ng-if="!x.editing4">{{x.baslikKol4}}</span>
                                                     <input required name="input4" ng-if="x.editing4" type="text" value="{{x.baslikKol4}}" maxlength="5" />
                                                 </td>
                                             </tr>
+                                            <!--5.KOLON-->
                                             <tr ng-repeat="x in ctlBasliklarListe" ng-init="tur='sahsi'">
                                                 <td>
                                                     <button class="btn btn-info" ng-class="{'btn-success' : x.editing5==true }" ng-click="baslikDuzenle(x,$index+5,tur)" ng-disabled="kolgiz5">{{x.editing5 ? 'Kaydet' : 'Düzenle'}} </button>
-                                                </td>
-                                                <td>
-                                                    <input type="button" class="btn btn-warning" ng-click="KolonGizle(x.baslikKol5,$index+5,$event,tur)" value="{{btnGizle5}}" />
                                                 </td>
                                                 <td>
                                                     <span ng-if="!x.editing5">{{x.baslikKol5}}</span>
                                                     <input required name="input5" ng-if="x.editing5" type="text" value="{{x.baslikKol5}}" maxlength="5" />
                                                 </td>
                                             </tr>
+                                            <!--6.KOLON-->
                                             <tr ng-repeat="x in ctlBasliklarListe" ng-init="tur='sahsi'">
                                                 <td>
                                                     <button class="btn btn-info" ng-class="{'btn-success' : x.editing6==true }" ng-click="baslikDuzenle(x,$index+6,tur)" ng-disabled="kolgiz6">{{x.editing6 ? 'Kaydet' : 'Düzenle'}} </button>
-                                                </td>
-                                                <td>
-                                                    <input type="button" class="btn btn-warning" ng-click="KolonGizle(x.baslikKol6,$index+6,$event,tur)" value="{{btnGizle6}}" />
                                                 </td>
                                                 <td>
                                                     <span ng-if="!x.editing6">{{x.baslikKol6}}</span>
                                                     <input required name="input6" ng-if="x.editing6" type="text" value="{{x.baslikKol6}}" maxlength="5" />
                                                 </td>
                                             </tr>
+                                            <!--7.KOLON-->
                                             <tr ng-repeat="x in ctlBasliklarListe" ng-init="tur='sahsi'">
                                                 <td>
                                                     <button class="btn btn-info" ng-class="{'btn-success' : x.editing7==true }" ng-click="baslikDuzenle(x,$index+7,tur)" ng-disabled="kolgiz7">{{x.editing7 ? 'Kaydet' : 'Düzenle'}} </button>
-                                                </td>
-                                                <td>
-                                                    <input type="button" class="btn btn-warning" ng-click="KolonGizle(x.baslikKol7,$index+7,$event,tur)" value="{{btnGizle7}}" />
                                                 </td>
                                                 <td>
                                                     <span ng-if="!x.editing7">{{x.baslikKol7}}</span>
                                                     <input required name="input7" ng-if="x.editing7" type="text" value="{{x.baslikKol7}}" maxlength="5" />
                                                 </td>
                                             </tr>
+                                            <!--8.KOLON-->
+                                            <tr ng-repeat="x in ctlBasliklarListe" ng-init="tur='sahsi'">
+                                                <td>
+                                                    <button class="btn btn-info" ng-class="{'btn-success' : x.editing8==true }" ng-click="baslikDuzenle(x,$index+8,tur)" ng-disabled="kolgiz8">{{x.editing8 ? 'Kaydet' : 'Düzenle'}} </button>
+                                                </td>
+                                                <td>
+                                                    <span ng-if="!x.editing8">{{x.baslikKol8}}</span>
+                                                    <input required name="input8" ng-if="x.editing8" type="text" value="{{x.baslikKol8}}" maxlength="5" />
+                                                </td>
+                                            </tr>
+                                            <!--9.KOLON-->
+                                            <tr ng-repeat="x in ctlBasliklarListe" ng-init="tur='sahsi'">
+                                                <td>
+                                                    <button class="btn btn-info" ng-class="{'btn-success' : x.editing9==true }" ng-click="baslikDuzenle(x,$index+9,tur)" ng-disabled="kolgiz9">{{x.editing9 ? 'Kaydet' : 'Düzenle'}} </button>
+                                                </td>
+                                                <td>
+                                                    <span ng-if="!x.editing9">{{x.baslikKol9}}</span>
+                                                    <input required name="input9" ng-if="x.editing9" type="text" value="{{x.baslikKol9}}" maxlength="5" />
+                                                </td>
+                                            </tr>
+                                            <!--10.KOLON-->
+                                            <tr ng-repeat="x in ctlBasliklarListe" ng-init="tur='sahsi'">
+                                                <td>
+                                                    <button class="btn btn-info" ng-class="{'btn-success' : x.editing10==true }" ng-click="baslikDuzenle(x,$index+10,tur)" ng-disabled="kolgiz10">{{x.editing10 ? 'Kaydet' : 'Düzenle'}} </button>
+                                                </td>
+                                                <td>
+                                                    <span ng-if="!x.editing10">{{x.baslikKol10}}</span>
+                                                    <input required name="input10" ng-if="x.editing10" type="text" value="{{x.baslikKol10}}" maxlength="5" />
+                                                </td>
+                                            </tr>
+                                            <!--UPDATE UYGULA BUTTON U-->
                                             <tr style="height:70px">
                                                 <td colspan="3">
                                                     <input type="button" class="btn btn-secondary" ng-click="clickMenuGizle()" value="İptal" />
@@ -338,94 +474,114 @@
                                         <thead>
                                             <tr>
                                                 <th></th>
-                                                <th></th>
                                                 <th class="text-center">Başlıklar</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <!--1.KOLON-->
                                             <tr ng-repeat="x in gurpCtlBasiklarListesi" ng-init="tur='grup'">
                                                 <td>
                                                     <button class="btn btn-info" ng-class="{'btn-success' : x.editing1==true }" ng-click="baslikDuzenle(x,$index+1,tur)" ng-disabled="kolgiz1">{{x.editing1 ? 'Kaydet' : 'Düzenle'}}</button>
                                                 </td>
-                                                <!--Gizle / Göster Buttonları-->
-                                                <td>
-                                                    <input type="button" class="btn btn-warning" ng-click="KolonGizle(x.gKol1,$index+1,$event,tur)" value="{{btnGizle1}}" />
-                                                </td>
+
                                                 <td>
                                                     <span name="input1" ng-if="!x.editing1">{{x.gKol1}}</span>
                                                     <input required name="input1" ng-if="x.editing1" type="text" value="{{x.gKol1}}" maxlength="5" />
                                                 </td>
                                             </tr>
+                                            <!--2.KOLON-->
                                             <tr ng-repeat="x in gurpCtlBasiklarListesi" ng-init="tur='grup'">
                                                 <td>
                                                     <button class="btn btn-info" ng-class="{'btn-success' : x.editing2==true }" ng-click="baslikDuzenle(x,$index+2,tur)" ng-disabled="kolgiz2">{{x.editing2 ? 'Kaydet' : 'Düzenle'}} </button>
                                                 </td>
-                                                <td>
-                                                    <input type="button" class="btn btn-warning" ng-click="KolonGizle(x.gKol2,$index+2,$event,tur)" value="{{btnGizle2}}" />
-                                                </td>
+
                                                 <td>
                                                     <span ng-if="!x.editing2">{{x.gKol2}}</span>
                                                     <input required name="input2" ng-if="x.editing2" type="text" value="{{x.gKol2}}" maxlength="5" />
                                                 </td>
                                             </tr>
+                                            <!--3.KOLON-->
                                             <tr ng-repeat="x in gurpCtlBasiklarListesi" ng-init="tur='grup'">
                                                 <td>
                                                     <button class="btn btn-info" ng-class="{'btn-success' : x.editing3==true }" ng-click="baslikDuzenle(x,$index+3,tur)" ng-disabled="kolgiz3">{{x.editing3 ? 'Kaydet' : 'Düzenle'}} </button>
-                                                </td>
-                                                <td>
-                                                    <input type="button" class="btn btn-warning" ng-click="KolonGizle(x.gKol3,$index+3,$event,tur)" value="{{btnGizle3}}" />
                                                 </td>
                                                 <td>
                                                     <span ng-if="!x.editing3">{{x.gKol3}}</span>
                                                     <input required name="input3" ng-if="x.editing3" type="text" value="{{x.gKol3}}" maxlength="5" />
                                                 </td>
                                             </tr>
+                                            <!--4.KOLON-->
                                             <tr ng-repeat="x in gurpCtlBasiklarListesi" ng-init="tur='grup'">
                                                 <td>
                                                     <button class="btn btn-info" ng-class="{'btn-success' : x.editing4==true }" ng-click="baslikDuzenle(x,$index+4,tur)" ng-disabled="kolgiz4">{{x.editing4 ? 'Kaydet' : 'Düzenle'}} </button>
                                                 </td>
-                                                <td>
-                                                    <input type="button" class="btn btn-warning" ng-click="KolonGizle(x.gKol4,$index+4,$event,tur)" value="{{btnGizle4}}" />
-                                                </td>
+
                                                 <td>
                                                     <span ng-if="!x.editing4">{{x.gKol4}}</span>
                                                     <input required name="input4" ng-if="x.editing4" type="text" value="{{x.gKol4}}" maxlength="5" />
                                                 </td>
                                             </tr>
+                                            <!--5.KOLON-->
                                             <tr ng-repeat="x in gurpCtlBasiklarListesi" ng-init="tur='grup'">
                                                 <td>
                                                     <button class="btn btn-info" ng-class="{'btn-success' : x.editing5==true }" ng-click="baslikDuzenle(x,$index+5,tur)" ng-disabled="kolgiz5">{{x.editing5 ? 'Kaydet' : 'Düzenle'}} </button>
                                                 </td>
-                                                <td>
-                                                    <input type="button" class="btn btn-warning" ng-click="KolonGizle(x.gKol5,$index+5,$event,tur)" value="{{btnGizle5}}" />
-                                                </td>
+
                                                 <td>
                                                     <span ng-if="!x.editing5">{{x.gKol5}}</span>
                                                     <input required name="input5" ng-if="x.editing5" type="text" value="{{x.gKol5}}" maxlength="5" />
                                                 </td>
                                             </tr>
+                                            <!--6.KOLON-->
                                             <tr ng-repeat="x in gurpCtlBasiklarListesi" ng-init="tur='grup'">
                                                 <td>
                                                     <button class="btn btn-info" ng-class="{'btn-success' : x.editing6==true }" ng-click="baslikDuzenle(x,$index+6,tur)" ng-disabled="kolgiz6">{{x.editing6 ? 'Kaydet' : 'Düzenle'}} </button>
                                                 </td>
-                                                <td>
-                                                    <input type="button" class="btn btn-warning" ng-click="KolonGizle(x.gKol6,$index+6,$event,tur)" value="{{btnGizle6}}" />
-                                                </td>
+
                                                 <td>
                                                     <span ng-if="!x.editing6">{{x.gKol6}}</span>
                                                     <input required name="input6" ng-if="x.editing6" type="text" value="{{x.gKol6}}" maxlength="5" />
                                                 </td>
                                             </tr>
+                                            <!--7.KOLON-->
                                             <tr ng-repeat="x in gurpCtlBasiklarListesi" ng-init="tur='grup'">
                                                 <td>
                                                     <button class="btn btn-info" ng-class="{'btn-success' : x.editing7==true }" ng-click="baslikDuzenle(x,$index+7,tur)" ng-disabled="kolgiz7">{{x.editing7 ? 'Kaydet' : 'Düzenle'}} </button>
                                                 </td>
-                                                <td>
-                                                    <input type="button" class="btn btn-warning" ng-click="KolonGizle(x.gKol7,$index+7,$event,tur)" value="{{btnGizle7}}" />
-                                                </td>
+
                                                 <td>
                                                     <span ng-if="!x.editing7">{{x.gKol7}}</span>
                                                     <input required name="input7" ng-if="x.editing7" type="text" value="{{x.gKol7}}" maxlength="5" />
+                                                </td>
+                                            </tr>
+                                            <!--8.KOLON-->
+                                            <tr ng-repeat="x in gurpCtlBasiklarListesi" ng-init="tur='grup'">
+                                                <td>
+                                                    <button class="btn btn-info" ng-class="{'btn-success' : x.editing8==true }" ng-click="baslikDuzenle(x,$index+8,tur)" ng-disabled="kolgiz8">{{x.editing8 ? 'Kaydet' : 'Düzenle'}} </button>
+                                                </td>
+                                                <td>
+                                                    <span ng-if="!x.editing8">{{x.gKol8}}</span>
+                                                    <input required name="input8" ng-if="x.editing8" type="text" value="{{x.gKol8}}" maxlength="5" />
+                                                </td>
+                                            </tr>
+                                            <!--9.KOLON-->
+                                            <tr ng-repeat="x in gurpCtlBasiklarListesi" ng-init="tur='grup'">
+                                                <td>
+                                                    <button class="btn btn-info" ng-class="{'btn-success' : x.editing9==true }" ng-click="baslikDuzenle(x,$index+9,tur)" ng-disabled="kolgiz9">{{x.editing9 ? 'Kaydet' : 'Düzenle'}} </button>
+                                                </td>
+                                                <td>
+                                                    <span ng-if="!x.editing9">{{x.gKol9}}</span>
+                                                    <input required name="input9" ng-if="x.editing9" type="text" value="{{x.gKol9}}" maxlength="5" />
+                                                </td>
+                                            </tr>
+                                            <!--10.KOLON-->
+                                            <tr ng-repeat="x in gurpCtlBasiklarListesi" ng-init="tur='grup'">
+                                                <td>
+                                                    <button class="btn btn-info" ng-class="{'btn-success' : x.editing10==true }" ng-click="baslikDuzenle(x,$index+10,tur)" ng-disabled="kolgiz10">{{x.editing10 ? 'Kaydet' : 'Düzenle'}} </button>
+                                                </td>
+                                                <td>
+                                                    <span ng-if="!x.editing10">{{x.gKol10}}</span>
+                                                    <input required name="input10" ng-if="x.editing10" type="text" value="{{x.gKol10}}" maxlength="5" />
                                                 </td>
                                             </tr>
                                             <tr style="height:70px">
@@ -444,37 +600,18 @@
                                 <div id="divYeniCTL" ng-controller="ctlOlusturma">
                                     <div class="card-body container">
                                         <div class="row justify-content-center" style="margin-bottom:3%;">
-                                            <table>
+                                            <table id="tableYeniSahsiCtlOlusturma">
+                                                <tr>
+                                                    <td>
+                                                        <input type="button" value="yazı" ng-click="kalemEkleText()" />
+                                                    </td>
+                                                    <td>
+                                                        <input type="button" value="check" ng-click="kalemEkleCheckBox()" />
+                                                    </td>
+                                                </tr>
                                                 <tr>
                                                     <td>CTL adı:</td>
                                                     <td><input type="text" ng-model="yCtlAdi" /></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>kolon-1 adı:</td>
-                                                    <td><input type="text" ng-model="yCtlKol1" /></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>kolon-2 adı:</td>
-                                                    <td><input type="text" ng-model="yCtlKol2" /></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>kolon-3 adı:</td>
-                                                    <td><input type="text" ng-model="yCtlKol3" /></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>kolon-4 adı:</td>
-                                                    <td><input type="text" ng-model="yCtlKol4" /></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>kolon-5 adı:</td>
-                                                    <td><input type="text" ng-model="yCtlKol5" /></td>
-                                                <tr>
-                                                    <td>kolon-6 adı:</td>
-                                                    <td><input type="text" ng-model="yCtlKol6" /></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>kolon-7 adı:</td>
-                                                    <td><input type="text" ng-model="yCtlKol7" /></td>
                                                 </tr>
                                             </table>
 
@@ -495,11 +632,18 @@
                                                     <td><button ng-click="clickSeciliCTLyiAc($index,kullaniciAdi,x,tr)">seç</button></td>
                                                     <td>{{x}}</td>
                                                 </tr>
-                                                <!--<tr border="0"><td colspan="2"></td></tr>
+                                                <tr border="0"><td colspan="2"></td></tr>
                                                 <tr ng-repeat="y in mevcutGrupCTLlerListesi" ng-init="tr='grup'">
-                                                    <td><button ng-click="clickSeciliGrupCTLyiAc($index,kullaniciAdi,y,tr)">seç</button></td>
+                                                    <td><button ng-click="clickSeciliCTLyiAc($index,kullaniciAdi,y,tr)">seç</button></td>
+
                                                     <td>{{y}}</td>
-                                                </tr>-->
+                                                </tr>
+                                                <tr border="0"><td colspan="2"></td></tr>
+                                                <tr ng-repeat="z in mevcutUyeOlunanGrupCTLlerListesi" ng-init="tr='uyeolunangrup'">
+                                                    <td><button ng-click="clickSeciliCTLyiAc($index,kullaniciAdi,z,tr)">seç</button></td>
+
+                                                    <td>{{z}}</td>
+                                                </tr>
                                             </table>
                                         </div>
                                     </div>
@@ -571,7 +715,7 @@
                                 </tr>
                             </table>
                         </div>
-                        <input type="button" name="name" value="deneme" ng-click="click()" />
+                        <!--<input type="button" name="name" value="deneme" ng-click="click()" />-->
                         <input type="button" class="btn btn-secondary" ng-click="clickMenuGizle()" value="İptal" />
                         <button type="submit" class="btn btn-primary" ng-disabled="myFormGrupKur.$invalid" ng-click="clickYeniGrup(kullaniciAdi,grupAdi,grupSifresi,donemBaslangic,donemBitis)">Oluştur</button><br />
                         <span ng-show="!myFormGrupKur.nameGA.$valid">Grup adı en az 3, en fazla 10 karakter içermeli</span><br />
@@ -579,7 +723,7 @@
                         <!--<span ng-show="!myFormGrupKur.nameKol1.$valid || !myFormGrupKur.nameKol2.$valid || !myFormGrupKur.nameKol3.$valid || !myFormGrupKur.nameKol4.$valid || !myFormGrupKur.nameKol5.$valid || !myFormGrupKur.nameKol6.$valid || !myFormGrupKur.nameKol7.$valid">Kolon isimleri en fazla 5 karakter içermeli</span>-->
                     </form>
 
-                </div>{{kolonAdlari}}
+                </div>
             </div>
         </div>
 
@@ -592,9 +736,13 @@
                 <div class="card-body container" style="margin-bottom:3%;">
                     <div class="row justify-content-center">
                         <table border="1" style="border-collapse:collapse;margin-top:3%;" class="col-6">
+                            <tr>
+                                <th>Gruplarım</th>
+                            </tr>
                             <tr ng-repeat="x in grupListem">
                                 <td><button ng-click="clickSeciliGrubaGit($index)">seç</button></td>
-                                <td>{{x}} </td>
+                                <!--grupADi-->
+                                <td>{{x[0]}} </td>
                             </tr>
                         </table>
                     </div>
@@ -604,6 +752,100 @@
             </div>
         </div>
 
+        <!--<%--========================= Şahsi/GrupCTL Silme Menüsü ======================--%>-->
+        <div id="cardMenuContainer" ng-hide="gizli7" class="card text-center" ng-controller="ctrlSahsiveGrupCTLSilme">
+            <div id="divcSahsiveGrupCTLSilme">
+                <div class="card-header">
+                    <h3>CTL Silme</h3>
+                </div>
+                <div class="card-body container" style="margin-bottom:3%;">
+                    <div class="row justify-content-center">
+                        <!--Şahsi CTL silme tablosu-->
+                        <table border="1" style="border-collapse:collapse;margin-top:3%;" class="col-9">
+                            <thead>
+                                <tr class="font-italic">
+                                    <th class="text-center">ID</th>
+                                    <th class="text-center">CTL Adı</th>
+                                    <th class="text-center">Yıl</th>
+                                    <th class="text-center">Ay</th>
+                                    <th class="text-center">CTL Türü</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="x in sahsiCTLSilmeListesi">
+                                    <td>{{x.kullaniciId}}</td>
+                                    <td>{{x.CtlAdi}}</td>
+                                    <td>{{x.yil}}</td>
+                                    <td>{{x.ay}}</td>
+                                    <td>{{x.ctlTuru}}</td>
+                                    <td><input type="button" value="sil" ng-click="clickSahsiCtlSil(x.kullaniciId,x.CtlAdi,x.yil,x.ay,x.ctlTuru)" /></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!--Grup CTL silme tablosu-->
+                        <table border="1" style="border-collapse:collapse;margin-top:3%;" class="col-9">
+                            <thead>
+                                <tr class="font-italic">
+                                    <th class="text-center">ID</th>
+                                    <th class="text-center">Grup Adı</th>
+                                    <th class="text-center">Dönem Başlangıç</th>
+                                    <th class="text-center">Dönem Bitiş</th>
+                                    <th class="text-center">CTL Türü</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="x in grupCTLSilmeListesi">
+                                    <td>{{x.id}}</td>
+                                    <td>{{x.grupAdi}}</td>
+                                    <td>{{x.donemBaslangic}}</td>
+                                    <td>{{x.donemBitis}}</td>
+                                    <td>{{x.ctlTuru}}</td>
+                                    <td><input type="button" value="sil" ng-click="clickGrupCtlSil(x.id,x.grupAdi,x.donemBaslangic,x.donemBitis,x.ctlTuru)" /></td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+                    </div>
+
+                </div>
+                <input type="button" class="btn btn-secondary" ng-click="clickMenuGizle()" value="İptal" />
+            </div>
+        </div>
+
+        <!--<%--========================= Bir Gruba Katılma Menüsü ======================--%>-->
+        <div id="cardMenuContainer" ng-hide="gizli8" class="card text-center" ng-controller="ctrBirGrubaKatil">
+            <div id="divBirGrubaKatil">
+                <div class="card-header">
+                    <h3>Bir Gruba Katıl</h3>
+                </div>
+                <div class="card-body container" style="margin-bottom:3%;">
+                    <div class="row justify-content-center">
+                        <form action="/" method="post" name="myFormGrubaKatil">
+                            <table border="1" style="border-collapse:collapse;margin-top:3%;" class="col-6">
+                                <tr>
+                                    <td>Grup ID</td>
+                                    <td><input type="text" ng-model="kGrupId" ng-required="true" /></td>
+                                </tr>
+                                <tr>
+                                    <td>Grup İsmi</td>
+                                    <td><input type="text" ng-model="kGrupAdi" ng-required="true" /></td>
+                                </tr>
+                                <tr>
+                                    <td>GrupŞifresi</td>
+                                    <td><input type="text" ng-model="kGrupSifresi" ng-required="true" /></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><input type="button" value="Katıl" style="width:100%" class="btn btn-primary" ng-disabled="myFormGrubaKatil.$invalid" ng-click="clickBirGrubaKatil(kGrupId,kGrupAdi,kGrupSifresi)" /></td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+
+                </div>
+                <input type="button" class="btn btn-secondary" ng-click="clickMenuGizle()" value="İptal" />
+            </div>
+        </div>
 
 
 
@@ -617,7 +859,9 @@
         <a href="#" ng-click="clickMenuHesabim()" class="btn btn-outline-primary">Kullanıcı Bilgileri</a>
         <a href="#" ng-click="clickMenuCtlIslemmleri()" class="btn btn-outline-primary">CTL İşlemleri</a>
         <a href="#" ng-click="clickMenuGrupKur()" class="btn btn-outline-primary">Grup Kur</a>
+        <a href="#" ng-click="clickMenuBirGrubaKatil()" class="btn btn-outline-primary">Bir Gruba Katıl</a>
         <a href="#" ng-click="clickMenuGrupListemiGetir()" class="btn btn-outline-primary">Grup Listem</a>
+        <a href="#" ng-click="clickMenuCTLSilme()" class="btn btn-outline-primary">CTL Silme</a>
 
         <a href="#" ng-click="clickCikis()" class="btn btn-outline-primary">Çıkış</a>
 

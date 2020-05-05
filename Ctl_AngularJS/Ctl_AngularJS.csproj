@@ -44,6 +44,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.7\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -53,6 +63,12 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.7\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -70,13 +86,27 @@
     <Content Include="css\bootstrap.css" />
     <Content Include="css\cssCtl.css" />
     <Content Include="CTL.html" />
-    <Content Include="CtlGrisisSayfasi.html" />
+    <Content Include="CtlGiris.html" />
     <Content Include="CTLYeniKullaniciGirisi.html" />
     <Content Include="CTL_CRUDOperations.asmx" />
+    <Content Include="Grup_CTL\Ctl_Grup.html" />
+    <Content Include="Grup_CTL\GrupCss\bootstrap.css" />
+    <Content Include="Grup_CTL\GrupCss\GrupCSS.css" />
+    <Content Include="Grup_CTL\GrupJs\angularCookies_v1.7.9.js" />
+    <Content Include="Grup_CTL\GrupJs\AngularJS v1.7.9.js" />
+    <Content Include="Grup_CTL\GrupJs\bootstrap.js" />
+    <Content Include="Grup_CTL\GrupJs\GrupControllers.js" />
+    <Content Include="Grup_CTL\GrupJs\GrupModules.js" />
+    <Content Include="Grup_CTL\GrupJs\GrupServices.js" />
+    <Content Include="Grup_CTL\GrupJs\jquery-3.2.1.js" />
+    <Content Include="Grup_CTL\GrupWebService.asmx" />
+    <Content Include="js\bootstrap.js" />
     <Content Include="js\CTL_Controllers.js" />
     <Content Include="js\AngularJS v1.7.9.js" />
     <Content Include="js\Ctl_Services.js" />
     <Content Include="js\Ctl_Modules.js" />
+    <Content Include="js\jquery-3.2.1.js" />
+    <Content Include="Sahsi_CTL.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -89,17 +119,33 @@
       <DependentUpon>CTL_CRUDOperations.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Grup_CTL\GrupCTLBaslikIsimleri.cs" />
+    <Compile Include="Grup_CTL\GrupCTLKolonIsimleri.cs" />
+    <Compile Include="Grup_CTL\GrupCtlUyeler.cs" />
+    <Compile Include="Grup_CTL\GrupWebService.asmx.cs">
+      <DependentUpon>GrupWebService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Grup_CTL\UyeOlunanGrupCtlBaslikIsimleri.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\bootstrap.css.map" />
+    <Content Include="js\angularCookies_v1.7.9.js" />
+    <Content Include="Grup_CTL\GrupCss\bootstrap.css.map" />
     <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
